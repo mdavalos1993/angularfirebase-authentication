@@ -1,3 +1,7 @@
+Fork author note:
+  - reason for this fork is to complete the auth with the phone auth method
+  - also adding the ability to check claims
+
 # Angular7 Authentication with Firebase5
 
 Learn to create full Firebase authentication system with Angular7 using AngularFire2 library.
