@@ -37,22 +37,26 @@ export class AuthService {
     try {
       return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-        console.log('r:' + JSON.stringify(result));
         if (result.user && !result.user.emailVerified)
         {
           this.afAuth.auth.signOut();
-          throw new Error('Validate your email!');
-        }
+          throw new Error(`We have sent a confirmation email to ${email}.` + 
+          `\nPlease check your email and click on the link to verfiy your email address.`);
+        } else if (this.localStorageEmailIsNotVerified && result.user && result.user.emailVerified)
+          {
+            // this is resetting the item with the latest claims (e.g. emailVerified)
+            localStorage.setItem('user', JSON.stringify(result.user));
+          };
         this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
         });
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert(error.message)
+        window.alert(error.message);
       })
       
     } catch (error) {
-      window.alert(error.message)
+      window.alert(error.message);
     }    
   }
 
@@ -91,6 +95,11 @@ export class AuthService {
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null && user.emailVerified !== false) ? true : false;
+  }
+  
+  get localStorageEmailIsNotVerified() {
+    const user = JSON.parse(localStorage.getItem('user'));    
+    return (user !== null && user.emailVerified === false) ? true : false;
   }
 
   // Sign in with Google
@@ -134,13 +143,6 @@ export class AuthService {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
     })
-  }
-
-  // Sign out but keep the user in the local storage.
-  // useful when we need to do a full user recycle e.g. after the user sent a confirmation email.
-  LiteSignOut() {
-    return this.afAuth.auth.signOut();
-    // .then(() => {this.router.navigate(['sign-in']);})
   }
 
 }
