@@ -34,8 +34,15 @@ export class AuthService {
 
   // Sign in with email/password
   SignIn(email, password) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    try {
+      return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
+        console.log('r:' + JSON.stringify(result));
+        if (result.user && !result.user.emailVerified)
+        {
+          this.afAuth.auth.signOut();
+          throw new Error('Validate your email!');
+        }
         this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
         });
@@ -43,6 +50,10 @@ export class AuthService {
       }).catch((error) => {
         window.alert(error.message)
       })
+      
+    } catch (error) {
+      window.alert(error.message)
+    }    
   }
 
   // Sign up with email/password
@@ -123,6 +134,13 @@ export class AuthService {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
     })
+  }
+
+  // Sign out but keep the user in the local storage.
+  // useful when we need to do a full user recycle e.g. after the user sent a confirmation email.
+  LiteSignOut() {
+    return this.afAuth.auth.signOut();
+    // .then(() => {this.router.navigate(['sign-in']);})
   }
 
 }
