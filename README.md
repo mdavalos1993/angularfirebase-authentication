@@ -1,5 +1,5 @@
 Fork author note:
-  - the **main** reason for this fork is to the phone auth method with the mandatory reCaptcha verifier.
+  - the **main** reason for this fork is to add the **phone auth method with the mandatory reCaptcha verifier** to the example.
   - re-organize the sign in screen.
   - fix the sign-up -> confirm email -> sign-in flow.
   - other fixes.
