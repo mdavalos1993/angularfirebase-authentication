@@ -1,7 +1,11 @@
 Fork author note:
-  - reason for this fork is to complete the auth with the phone auth method
-  - also adding the ability to check claims
+  - the **main** reason for this fork is to the phone auth method with the mandatory reCaptcha verifier.
+  - re-organize the sign in screen.
+  - fix the sign-up -> confirm email -> sign-in flow.
+  - other fixes.
+
 ![Updated Sign In with Phone Auth](https://github.com/danmincu/angularfirebase-authentication/blob/master/UpdatedSignIn..PNG?raw=true)
+
 
 ## Original article
 
