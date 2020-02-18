@@ -1,14 +1,11 @@
 Fork author note:
   - reason for this fork is to complete the auth with the phone auth method
   - also adding the ability to check claims
+![Updated Sign In with Phone Auth](https://github.com/danmincu/angularfirebase-authentication/blob/master/UpdatedSignIn..PNG?raw=true)
 
-# Angular7 Authentication with Firebase5
+## Original article
 
-Learn to create full Firebase authentication system with Angular7 using AngularFire2 library.
-
-## Written Article
 [Full Angular 7 Firebase Authentication System](https://www.positronx.io/full-angular-7-firebase-authentication-system)
-
 
 - Sign in with Google
 - Sign in with Facebook
