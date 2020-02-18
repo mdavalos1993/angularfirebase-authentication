@@ -94,11 +94,12 @@ export class AuthService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
+    if (user !== null && user.phoneNumber !== null) return true;
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
   
   get localStorageEmailIsNotVerified() {
-    const user = JSON.parse(localStorage.getItem('user'));    
+    const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null && user.emailVerified === false) ? true : false;
   }
 
@@ -145,4 +146,8 @@ export class AuthService {
     })
   }
 
+  // Sign with the phone number
+  PhoneAuth(num: string, appVerifier: auth.ApplicationVerifier) {
+    return this.afAuth.auth.signInWithPhoneNumber(num, appVerifier);
+  }
 }

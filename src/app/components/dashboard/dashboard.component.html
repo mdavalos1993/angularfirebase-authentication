@@ -42,10 +42,11 @@
               <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
                 alt="{{user.displayName}}">
               <div class="media-body">
-                <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+                <h1>Hello: <strong>{{(user.displayName) ? user.displayName : ((user.phoneNumber) ? user.phoneNumber : 'User')}}</strong></h1>
                 <p>User ID: <strong>{{user.uid}}</strong></p>
-                <p>Email: <strong>{{user.email}}</strong></p>
-                <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+                <p *ngIf="user.email">Email: <strong>{{user.email}}</strong></p>
+                <p *ngIf="user.email">Email Verified: <strong>{{user.emailVerified}}</strong></p>
+                <p *ngIf="user.phoneNumber">Phone: <strong>{{user.phoneNumber}}</strong></p>
               </div>
             </div>
           </div>

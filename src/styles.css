@@ -549,6 +549,14 @@ body .table thead th {
   max-width: 150px;
 }
 
+.left-div {
+  float: left;
+  width: 100px;
+  height: 20px;
+  margin-right: 8px;
+  background-color: rgb(232, 240, 254) !important;
+}
+
 /* Responsive */
 @media(max-width:767px) {
   .sidebar {
