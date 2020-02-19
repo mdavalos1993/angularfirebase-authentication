@@ -1,6 +1,8 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { AuthService } from "../../shared/services/auth.service";
 import { Router } from "@angular/router";
+import { filter, map } from "rxjs/operators";
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -16,6 +18,8 @@ export class DashboardComponent implements OnInit {
     public ngZone: NgZone
   ) { }
 
-  ngOnInit() { }
-
+  public claims$: Observable<any>;
+  ngOnInit() {
+    this.claims$ = this.authService.afAuth.idTokenResult.pipe(filter(m =>  m && !!m.claims), map((t) => t.claims));
+  }
 }

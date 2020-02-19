@@ -1,10 +1,13 @@
 Fork author note:
   - the **main** reason for this fork is to add the **phone auth method with the mandatory reCaptcha verifier** to the example.
+  - added the ability to read custom claims (see role in the dashboard). also see the admin script to add the custom role.
   - re-organize the sign in screen.
   - fix the sign-up -> confirm email -> sign-in flow.
   - other fixes.
 
 ![Updated Sign In with Phone Auth](https://github.com/danmincu/angularfirebase-authentication/blob/master/UpdatedSignIn..PNG?raw=true)
+
+![Updated Dash with custom claims](https://github.com/danmincu/angularfirebase-authentication/blob/master/UpdatedDashboard.PNG?raw=true)
 
 
 ## Original article
