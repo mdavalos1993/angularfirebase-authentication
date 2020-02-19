@@ -4,6 +4,7 @@ Fork author note:
   - re-organize the sign in screen.
   - fix the sign-up -> confirm email -> sign-in flow.
   - other fixes.
+If you end up using the new stuff I've added in this fork don't forget to leave me a ⭐. Thanks!
 
 ![Updated Sign In with Phone Auth](https://github.com/danmincu/angularfirebase-authentication/blob/master/UpdatedSignIn..PNG?raw=true)
 
