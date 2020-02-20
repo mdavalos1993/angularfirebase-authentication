@@ -32,5 +32,5 @@ If you end up using the new stuff I've added in this fork don't forget to leave 
 
 ## Installation Process
 Run `npm install` to install all the required dependencies
-
+Add yout Firebase account on your `environment.ts`
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
